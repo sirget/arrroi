@@ -2,7 +2,7 @@ import React from 'react';
 import background from '../images/BG.png'
 const Start = () => (
     <div class="flex">
-        <div class="container border">
+        <div class="container">
             <img src={background} class="background" />
             <div class="center">
                 <h1 class="title">
