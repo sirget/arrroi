@@ -53,6 +53,7 @@
 }
 img.background {
   width: 100%;
+  display: block;
 }
 .center {
   position: absolute;
@@ -78,6 +79,7 @@ button.start {
 .flex {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .text {
   font-family: Manrope, Helvetica, Arial, sans-serif;
