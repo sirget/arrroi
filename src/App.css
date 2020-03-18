@@ -1,7 +1,6 @@
 .App {
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +34,56 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@font-face {
+  font-family: Manrope;
+  src: url(./fonts/manrope.woff);
+}
+
+.title {
+  font-family: Manrope, Helvetica, Arial, sans-serif;
+  font-size: 9vw;
+  padding-top: 0px;
+  color: white;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+}
+.border {
+  border: 3px solid black;
+}
+img.background {
+  width: 100%;
+}
+.center {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+button.start {
+  text-align: center;
+  background-color: #9C1402;
+  color:white;
+  padding: 8px;
+  border: none;
+  width: 25vw;
+  font-size: 3vw;
+  border-radius: 20px;
+  font-weight: 700;
+}
+.container {
+  position: relative;
+  text-align: center;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+.text {
+  font-family: Manrope, Helvetica, Arial, sans-serif;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  top: 0px;
 }
