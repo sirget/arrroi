@@ -1,65 +1,77 @@
-.App {
-  text-align: center;
-}
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* //////////////////////////////////////////////////GLOBAL///////////////////////////////////////////////////////////// */
 @font-face {
   font-family: Manrope;
   src: url(./fonts/manrope.woff);
 }
-
-.title {
-  font-family: Manrope, Helvetica, Arial, sans-serif;
-  font-size: 9vw;
-  padding-top: 0px;
-  color: white;
-  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+@font-face {
+  font-family: Supermarket;
+  src: url(./fonts/supermarket.woff);
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  top: 0px;
+}
+a {
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
 }
 .border {
   border: 3px solid black;
 }
 img.background {
   width: 100%;
-  display: block;
 }
-.center {
+.vertical-center {
   position: absolute;
   top: 45%;
   left: 50%;
   transform: translate(-50%,-50%);
+}
+.horizontal-center {
+  text-align: center;
+}
+.column-flex {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+p.title {
+  font-size: 4vw;
+}
+.textM {
+  font-family: Manrope, Helvetica, Arial, sans-serif;
+}
+.textS {
+  font-family: Supermarket;
+}
+input {
+  border:none
+}
+button:hover {
+  opacity: 0.8;
+}
+.form-center {
+  position: relative;
+  left: 30%;
+  text-align: left;
+}
+.box {
+  width: 40%;
+}
+/* //////////////////////////////////////////////////WELCOME///////////////////////////////////////////////////////////// */
+h1.title {
+  font-family: Manrope, Helvetica, Arial, sans-serif;
+  font-size: 9vw;
+  padding-top: 0px;
+  color: white;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+}
+.container {
+  position: relative;
+  text-align: center;
 }
 button.start {
   text-align: center;
@@ -72,20 +84,80 @@ button.start {
   border-radius: 20px;
   font-weight: 700;
 }
-.container {
-  position: relative;
-  text-align: center;
+/* //////////////////////////////////////////////////LOGIN///////////////////////////////////////////////////////////// */
+button.login {
+  width: 12vw;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  background-color: #4a362b;
+  margin: 1.5vw 1.5vw 0px 1.5vw;
+  font-size: 2.5vw;
+  transition: 0.3s;
 }
-.flex {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+input.login {
+  padding:1vw 1.2vw 1vw 1.2vw;
+  margin: 0px 0px 1.2vw 0px;
+  width: 100%;
+  height: 4vw;
+  font-size: 1.5vw;
+  text-indent: 3vw;
+  border-radius: 6px;
+  background-color: #ebc27c;
+  border: 0.25vw solid #ebc27c;
+  box-sizing: border-box;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-origin: content-box;
 }
-.text {
-  font-family: Manrope, Helvetica, Arial, sans-serif;
+input.user {  
+  background-image: url(./images/user.png);
 }
-* {
-  padding: 0px;
-  margin: 0px;
-  top: 0px;
+input.error {  
+  border: 0.25vw solid red;
+}
+input.pass {
+  background-image: url(./images/lock.png);
+}
+label.left {
+  text-align: left;
+  font-size: 2.5vw;
+  display: block;
+}
+div.error {
+  font-size: 1.7vw;
+}
+.tippy-tooltip.error-theme {
+  font-family: Supermarket, Helvetica ,Arial, sans-serif;
+  color: white;
+  background-color: red;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.tippy-popper[x-placement=left] .tippy-tooltip.error-theme [x-arrow] {
+  border-left: 7px solid red;
+}
+.tippy-popper[x-placement=right] .tippy-tooltip.error-theme [x-arrow] {
+  border-right: 7px solid red;
+}
+/* //////////////////////////////////////////////////LOGIN///////////////////////////////////////////////////////////// */
+div.size {
+  display: inline-block;
+  width: 40%;
+
+}
+div.a {
+  display: inline-block;
+  vertical-align: top;
+}
+input.register {
+  width: 10%;
+  border: 3px solid red
+}
+form.register {
+  padding: 2vw;
+  background-color: #ebc27c;
+}
+textarea.register {
+  resize: none;
 }
