@@ -1,19 +1,15 @@
-import React, { Component } from 'react';
-
+import React, {Component} from "react";
+import {BrowserRouter as Router} from "react-dom";
 class Test extends Component {
-    constructor() {
-        super()
-        this.state = {
-            text: "border"
-        }
-    }
-    render() {
-        return (
-            <div align = "center">
-                <h1>Login successful!</h1>
-            </div>
-        );
-    }
+	constructor() {
+		super();
+		this.state = {
+			text: "border"
+		};
+	}
+	render() {
+		return (<></>);
+	}
 }
 
 export default Test;

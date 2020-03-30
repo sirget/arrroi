@@ -1,164 +1,389 @@
 /* //////////////////////////////////////////////////GLOBAL///////////////////////////////////////////////////////////// */
 @font-face {
-  font-family: Manrope;
-  src: url(./fonts/manrope.woff);
+    font-family: Manrope;
+    src: url(./fonts/manrope.woff);
 }
+
 @font-face {
-  font-family: Supermarket;
-  src: url(./fonts/supermarket.woff);
+    font-family: Supermarket;
+    src: url(./fonts/supermarket.woff);
 }
+
 * {
-  padding: 0px;
-  margin: 0px;
-  top: 0px;
+    padding: 0px;
+    margin: 0px;
+    top: 0px;
 }
+
 a {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 button {
-  cursor: pointer;
+    cursor: pointer;
+    border: none;
 }
+
 .border {
-  border: 3px solid black;
+    border: 3px solid black;
 }
+
 img.background {
-  width: 100%;
+    width: 100%;
 }
+
 .vertical-center {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
 .horizontal-center {
-  text-align: center;
+    text-align: center;
 }
+
+.row-flex {
+    display: flex;
+    flex-direction: row;
+    /* overflow: hidden; */
+}
+
 .column-flex {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
+
 p.title {
-  font-size: 4vw;
+    font-size: 4vw;
 }
+
 .textM {
-  font-family: Manrope, Helvetica, Arial, sans-serif;
+    font-family: Manrope, Helvetica, Arial, sans-serif;
 }
+
 .textS {
-  font-family: Supermarket;
+    font-family: Supermarket;
 }
+
 input {
-  border:none
+    border: none;
 }
+
+::-ms-clear,
+::-ms-reveal {
+    display: none;
+}
+
+textarea {
+    border: none;
+    overflow: hidden;
+    resize: none;
+}
+
 button:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
-.form-center {
-  position: relative;
-  left: 30%;
-  text-align: left;
+
+.fullWidth {
+    width: 100%;
 }
-.box {
-  width: 40%;
+
+
+.hidden {
+    visibility: hidden;
 }
+
+
 /* //////////////////////////////////////////////////WELCOME///////////////////////////////////////////////////////////// */
 h1.title {
-  font-family: Manrope, Helvetica, Arial, sans-serif;
-  font-size: 9vw;
-  padding-top: 0px;
-  color: white;
-  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+    font-family: Manrope, Helvetica, Arial, sans-serif;
+    font-size: 9vw;
+    padding-top: 0px;
+    color: white;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
 }
+
 .container {
-  position: relative;
-  text-align: center;
+    position: relative;
+    text-align: center;
 }
+
 button.start {
-  text-align: center;
-  background-color: #9C1402;
-  color:white;
-  padding: 8px;
-  border: none;
-  width: 25vw;
-  font-size: 3vw;
-  border-radius: 20px;
-  font-weight: 700;
+    text-align: center;
+    background-color: #9c1402;
+    color: white;
+    padding: 8px;
+    width: 25vw;
+    font-size: 3vw;
+    border-radius: 20px;
+    font-weight: 700;
 }
+
 /* //////////////////////////////////////////////////LOGIN///////////////////////////////////////////////////////////// */
 button.login {
-  width: 10vw;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  background-color: #4a362b;
-  margin: 1.5vw 1.5vw 0px 1.5vw;
-  font-size: 2vw;
-  transition: 0.3s;
+    width: 10vw;
+    color: white;
+    border-radius: 8px;
+    background-color: #4a362b;
+    margin: 0px 1.5vw 0px 1.5vw;
+    font-size: 2vw;
+    transition: 0.3s;
 }
-input.login {
-  padding:0.5vw 1.2vw 0.5vw 1.2vw;
-  margin: 0px 0px 0.8vw 0px;
-  width: 100%;
-  height: 3vw;
-  font-size: 1.5vw;
-  text-indent: 2.8vw;
-  border-radius: 6px;
-  background-color: #ebc27c;
-  border: 0.25vw solid #ebc27c;
-  box-sizing: border-box;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-origin: content-box;
-}
-input.user {  
-  background-image: url(./images/user.png);
-}
-input.error {  
-  border: 0.25vw solid red;
-}
-input.pass {
-  background-image: url(./images/lock.png);
-}
-label.left {
-  text-align: left;
-  font-size: 2.2vw;
-  display: block;
-  margin: 0px 0px 0.2vw 0px;
-}
-div.error {
-  font-size: 1.7vw;
-}
-.tippy-tooltip.error-theme {
-  font-family: Supermarket, Helvetica ,Arial, sans-serif;
-  color: white;
-  background-color: red;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-.tippy-popper[x-placement=left] .tippy-tooltip.error-theme [x-arrow] {
-  border-left: 7px solid red;
-}
-.tippy-popper[x-placement=right] .tippy-tooltip.error-theme [x-arrow] {
-  border-right: 7px solid red;
-}
-/* //////////////////////////////////////////////////LOGIN///////////////////////////////////////////////////////////// */
-div.size {
-  display: inline-block;
-  width: 40%;
 
+input.user,
+input.pass {
+    padding: 0.5vw 1.2vw 0.5vw 1.2vw;
+    margin: 0px 0px 0.8vw 0px;
+    width: 100%;
+    height: 3vw;
+    font-size: 1.5vw;
+    text-indent: 2.8vw;
+    border-radius: 6px;
+    background-color: #ebc27c;
+    border: 0.15vw solid #ebc27c;
+    box-sizing: border-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-origin: content-box;
 }
-div.a {
-  display: inline-block;
-  vertical-align: top;
+
+input.user {
+    background-image: url(./images/user.png);
 }
+
+input.pass {
+    background-image: url(./images/lock.png);
+}
+
+label.left {
+    text-align: left;
+    font-size: 2.2vw;
+    display: block;
+    margin: 0px 0px 0.2vw 0px;
+}
+
+div.error {
+    font-size: 1.7vw;
+}
+
+.tippy-tooltip.error-theme {
+    font-family: Supermarket, Helvetica, Arial, sans-serif;
+    color: white;
+    background-color: red;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.tippy-popper[x-placement="left"] .tippy-tooltip.error-theme [x-arrow] {
+    border-left: 7px solid red;
+}
+
+.tippy-popper[x-placement="right"] .tippy-tooltip.error-theme [x-arrow] {
+    border-right: 7px solid red;
+}
+
+form.form-login-center {
+    position: relative;
+    left: 30%;
+    width: 40%;
+    text-align: left;
+}
+
+button.login-close {
+    width: 1vw;
+    height: 1vw;
+}
+
+button.close {
+    background-image: url('./images/close.png');
+}
+
+button.hidePassword,
+button.showPassword,
+button.close {
+    background-color: rgba(0, 0, 0, 0);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+button.login-hidePassword,
+button.login-showPassword {
+    width: 2vw;
+    height: 2vw;
+}
+
+button.hidePassword {
+    background-image: url(./images/hide.png);
+}
+
+button.showPassword {
+    background-image: url(./images/eye.png);
+}
+
+/* //////////////////////////////////////////////////REGISTER////////////////////////////////////////////////////////// */
+div.register-label-box {
+    width: 25%;
+}
+
+div.form-register-center {
+    width: 55%;
+    position: relative;
+    left: 22.5%;
+    text-align: left;
+}
+
+form.form-register-center {
+    padding: 2vw 0.25vw 2vw 2vw;
+    background-color: #ebc27c;
+    border-radius: 6px;
+    margin-bottom:6vw;
+}
+
+label.register {
+    font-size: 1.5vw;
+    display: flex;
+    align-self: center;
+    position: relative;
+}
+
+/* textarea.register {
+    height: 10vw;
+    background-color: red;
+    color:magenta;
+} */
+textarea.register,
 input.register {
-  width: 10%;
-  border: 3px solid red
+    width: 99%;
+    font-size: 1.5vw;
+    border: 0.15vw solid white;
 }
-form.register {
-  padding: 2vw;
-  background-color: #ebc27c;
+
+
+img.icon {
+    width: 40%;
+    cursor: pointer;
+    margin: 0px 0px -0.5vw 0px;
 }
-textarea.register {
-  resize: none;
+
+button.register {
+    width: 0.9vw;
+    height: 0.9vw;
+}
+
+textarea.error,
+input.error {
+    border: 0.15vw solid red;
+}
+
+div.info {
+    font-size: 1.25vw;
+    text-align: left;
+}
+.tippy-tooltip.info-theme {
+    font-family: Supermarket, Helvetica, Arial, sans-serif;
+    color: white;
+    background-color: #4a362b;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.tippy-popper[x-placement="top"] .tippy-tooltip.info-theme [x-arrow] {
+    border-top: 7px solid #4a362b;
+}
+
+.tippy-popper[x-placement="bottom"] .tippy-tooltip.info-theme [x-arrow] {
+    border-bottom: 7px solid #4a362b;
+}
+div.errorText {
+    color:red;
+    font-size:1.1vw;
+    text-indent: 0.7vw;
+}
+div.top {
+    align-content: flex-start;
+}
+/* //////////////////////////////////////////////////HOME////////////////////////////////////////////////////////////// */
+.head_home {
+    font-size: 4vw;
+    color: #814a2d;
+}
+
+.img_menu {
+    position: absolute;
+    left: 34vw;
+    width: 7vw;
+}
+
+.img_shop {
+    position: absolute;
+    right: 34vw;
+    width: 7vw;
+}
+
+.box {
+    position: relative;
+    display: flex;
+    height: 30vw;
+    justify-content: center;
+    margin-top: 2.5vw;
+    font-size: 1.5vw;
+}
+
+.box_menu {
+    height: 23vw;
+    width: 19vw;
+    border-radius: 0.5vw;
+    background-color: #ebc27c;
+    margin: 3vw;
+    box-shadow: 0.1vw 0.1vw 0.5vw #707070;
+}
+
+.box_shop {
+    height: 23vw;
+    width: 19vw;
+    border-radius: 0.5vw;
+    background-color: #ebc27c;
+    margin: 3vw;
+    box-shadow: 0.1vw 0.1vw 0.5vw #707070;
+}
+
+.text_menu {
+    font-size: 3.8vw;
+    margin-top: 6vw;
+}
+
+.text_shop {
+    font-size: 3.8vw;
+    margin-top: 6vw;
+}
+
+/* //////////////////////////////////////////////////About////////////////////////////////////////////////////////////// */
+h1.aboutUs {
+    font-size: 4vw;
+    /* font-family: Manrope, Helvetica, Arial, sans-serif; */
+}
+
+p.us {
+    font-size: 2.5vw;
+    /* font-family: Supermarket,Arial, Helvetica, sans-serif; */
+    display: flex;
+    justify-content: center;
+}
+
+p.us>div {
+    padding-left: 0px;
+    width: 250px;
+    margin-right: 50px;
+}
+/* //////////////////////////////////////////////////Navbar///////////////////////////////////////////////////////////// */
+ul.navbar {
+    position: fixed;
+    z-index: 10;
+    background-color: #D6C4BA;
+}
+li.navbar {
+    display: inline-block;
 }

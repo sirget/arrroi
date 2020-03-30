@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "prettier.tabWidth": 4,
+    "prettier.arrowParens": "always",
+    "prettier.useTabs": true,
+    "editor.detectIndentation": false,
+    "prettier.bracketSpacing": false
+}

@@ -1,67 +1,96 @@
-import React, { Component } from 'react';
-import LoginField from './LoginField';
-import {withRouter} from 'react-router-dom';
+import React, {Component} from "react";
+import LoginField from "./LoginField";
+import {withRouter} from "react-router-dom";
+import Input from "./Input";
 class Login extends Component {
-    constructor() {
-        super()
-        this.state = {
-            username: "",
-            password: "",
-            usernameError: "",
-            passwordError: ""
-        }
-    }
-    getData = (e, data) => {
-        this.setState({
-            [e.target.id]: data
-        });
-        
-    }
-    handleSubmit = (event) => {
-        let usernameError = "", passwordError = "",error = false;
-        event.preventDefault();   
-        console.log(event.target)     
-        this.setState({
-            usernameError:"",
-            passwordError:""
-        });  
-        if (this.state.password === "") {
-            this.setState({
-                passwordError: "Password is required."
-            });
-            error =true;
-        }
-        if (this.state.username === "") {
-            this.setState({
-                usernameError: "Username is required."
-            });
-            error =true;
-        }
-        if(error) return false;
-        console.log(this.state);
-        this.props.history.push('/test');
-        return true;
-    }
+	constructor() {
+		super();
+		this.state = {
+			Username: "",
+			Password: "",
+			error: {
+				usernameError: "",
+				passwordError: ""
+			}
+		};
+	}
+	getData = (e, data, what = true) => {
+		if (what)
+			this.setState({
+				[e.target.id]: data
+			});
+		else
+			this.setState({
+				[e.id]: data
+			});
+	};
+	handleSubmit = (event) => {
+		let error = this.state.error;
+		let isError = false;
+		event.preventDefault();
+		error.usernameError =
+			this.state.Username === "" ? "Username is required." : "";
+		error.passwordError =
+			this.state.Password === "" ? "Password is required." : "";
+		isError =
+			this.state.usernameError !== "" || this.state.passwordError !== ""
+				? true
+				: false;
+		this.setState({error});
+		if (isError) {
+			return false;
+		}
+		this.props.history.push("/test");
+		return true;
+	};
 
-    render() {
-        return (
-            <div class="horizontal-center textS">
-                <p class="title">
-                    Log in
-                </p>
-                <form id="login" class="box form-center" onSubmit={this.handleSubmit} autoComplete = "off">
-                    <LoginField error={this.state.usernameError} type="text" id="username" text="Username" ref = "child" pass = {this.getData}/>
-                    <LoginField error={this.state.passwordError} type="password" id="password" text="Password" ref = "child" pass = {this.getData}/>
-                </form>
-                <button class="textS login" onClick = {() => (this.props.history.push('/register'))}>
-                    Register
-                </button>
-                <button class="textS login" type="submit" form="login" >
-                    Log in
-                </button>
-            </div >
-        );
-    }
+	render() {
+		return (
+			<div className="horizontal-center textS">
+				<p className="title">Log in</p>
+				<form
+					id="login"
+					className="form-login-center"
+					onSubmit={this.handleSubmit}
+					autoComplete="off"
+				>
+					<LoginField id="Username">
+						<Input
+							id="Username"
+							pass={this.getData}
+							position="right"
+							disabled={this.state.error.usernameError === ""}
+							maxLength="25"
+							display={this.state.error.usernameError}
+							type="text"
+							style={{top: "-2.8vw", left: "37.6vw"}}
+						/>
+					</LoginField>
+					<LoginField id="Password">
+						<Input
+							id="Password"
+							pass={this.getData}
+							disabled={this.state.error.passwordError === ""}
+							display={this.state.error.passwordError}
+							position="right"
+							maxLength="30"
+							type="password"
+							style={{top: "-3.3vw", left: "37vw"}}
+						/>
+					</LoginField>
+				</form>
+				<button
+					className="textS login"
+					onClick={() => this.props.history.push("/register")}
+				>
+					Register
+				</button>
+				<button className="textS login" type="submit" form="login">
+					Log in
+				</button>
+			</div>
+		);
+	}
 }
 
 export default withRouter(Login);
