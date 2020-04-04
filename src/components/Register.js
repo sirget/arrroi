@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import RegisterField from "./RegisterField";
 import Input from "./Input";
 import information from "../images/information.png";
+import {withRouter} from "react-router-dom";
 class Register extends Component {
 	constructor() {
 		super();
@@ -69,17 +70,17 @@ class Register extends Component {
 				? ""
 				: "เบอร์โทรศัพท์ไม่ถูกต้อง";
 		isError =
-			this.state.usernameError !== "" ||
-			this.state.passwordError !== "" ||
-			this.state.surnameError !== "" ||
-			this.state.nameError !== "" ||
-			this.state.addressError !== "" ||
-			this.state.confirmError !== "" ||
-			this.state.emailError !== "" ||
-			this.state.phoneError !== ""
+			error.usernameError !== "" ||
+			error.passwordError !== "" ||
+			error.surnameError !== "" ||
+			error.nameError !== "" ||
+			error.addressError !== "" ||
+			error.confirmError !== "" ||
+			error.emailError !== "" ||
+			error.phoneError !== ""
 				? true
 				: false;
-		this.setState({error});
+        this.setState({ error });
 		if (isError) {
 			return false;
 		}
@@ -130,7 +131,8 @@ class Register extends Component {
 								display={this.state.error.nameError}
 								disabled={this.state.error.nameError === ""}
 								maxLength="25"
-								hidden={true}
+                                hidden={true}
+                                placeholder="สมชาย"
 							/>
 						</RegisterField>
 						<RegisterField
@@ -146,14 +148,15 @@ class Register extends Component {
 								display={this.state.error.surnameError}
 								disabled={this.state.error.surnameError === ""}
 								maxLength="25"
-								hidden={true}
+                                hidden={true}
+                                placeholder="รักชาติ"
 							/>
 						</RegisterField>
 						<RegisterField
 							id="อีเมล"
 							display={this.state.error.emailError}
-							hasIcon={true}
-							info={"อีเมลต้องประกอบไปด้วยตัว @ และ ."}
+							// hasIcon={true}
+							// info={"เช่น example@test.com"}
 						>
 							<Input
 								className="register"
@@ -164,7 +167,8 @@ class Register extends Component {
 								display={this.state.error.emailError}
 								disabled={this.state.error.emailError === ""}
 								maxLength="25"
-								hidden={true}
+                                hidden={true}
+                                placeholder="test@example.com"
 							/>
 						</RegisterField>
 						<RegisterField
@@ -181,6 +185,7 @@ class Register extends Component {
 								disabled={this.state.error.usernameError === ""}
 								maxLength="25"
 								hidden={true}
+                                placeholder="example_01"
 							/>
 						</RegisterField>
 						<RegisterField
@@ -200,7 +205,8 @@ class Register extends Component {
 								display={this.state.error.passwordError}
 								disabled={this.state.error.passwordError === ""}
 								maxLength="25"
-								hidden={true}
+                                hidden={true}                                
+                                placeholder="Ex123456789"
 							/>
 						</RegisterField>
 
@@ -217,7 +223,8 @@ class Register extends Component {
 								display={this.state.error.confirmError}
 								disabled={this.state.error.confirmError === ""}
 								maxLength="25"
-								hidden={true}
+								hidden={true}                             
+                                placeholder="Ex123456789"
 							/>
 						</RegisterField>
 
@@ -234,7 +241,8 @@ class Register extends Component {
 								display={this.state.error.phoneError}
 								disabled={this.state.error.phoneError === ""}
 								maxLength="10"
-								hidden={true}
+								hidden={true}                             
+                                placeholder="0899199218"
 							/>
 						</RegisterField>
 						<RegisterField
@@ -250,7 +258,8 @@ class Register extends Component {
 								display={this.state.error.addressError}
 								disabled={this.state.error.addressError === ""}
                                 maxLength="92"
-								hidden={true}
+                                hidden={true}                                                             
+                                placeholder="99/99 หมู่ 9 ถนนสายไหม ต.จัดสรร อ.เมือง จ.อาหาร"
 							/>
 						</RegisterField>
 					</form>
@@ -268,4 +277,4 @@ class Register extends Component {
 	}
 }
 
-export default Register;
+export default withRouter(Register);

@@ -18,7 +18,7 @@ class Input extends Component {
 	};
 	handleClick = (event) => {
 		let x = document.getElementById("Password");
-		let y = document.getElementById("Username");
+		let y = document.getElementById("Email");
 		if (event.target.id === "Password icon") {
 			if (x.type === "password") {
 				event.target.className = "login-showPassword showPassword";
@@ -28,7 +28,7 @@ class Input extends Component {
 				x.type = "password";
 			}
 		}
-		if (event.target.id === "Username icon") {
+		if (event.target.id === "Email icon") {
 			this.setState({
 				text: ""
 			});
@@ -42,10 +42,10 @@ class Input extends Component {
 			case "ยืนยันรหัสผ่าน":
 				if (!/[0-9A-Za-z]+/g.test(event.key)) event.preventDefault();
 				break;
-			case "Username":
 			case "บัญชีผู้ใช้":
 				if (!/[\w]+/g.test(event.key)) event.preventDefault();
 				break;
+			case "Email":
 			case "อีเมล":
 				if (
 					!/[A-Za-z0-9!#$%&"'*+-/=?^_`{|}~(),:;<>@[\].]+/g.test(
@@ -55,7 +55,6 @@ class Input extends Component {
 					event.preventDefault();
 				break;
 			case "เบอร์โทรศัพท์":
-				console.log(event.key);
 				if (
 					!/[\d]+/g.test(event.key) &&
 					event.key !== "ArrowLeft" &&
@@ -88,7 +87,7 @@ class Input extends Component {
 					className={
 						this.props.className +
 						(this.props.display === "" ? "" : " error")
-					}
+                    }
 					onPaste={(event) => {
 						event.preventDefault();
 					}}
@@ -110,24 +109,26 @@ class Input extends Component {
 					onMouseOut={() => {
 						if (!this.state.isFocused) this.setState({open: false});
 					}}
+                    placeholder={this.props.placeholder}
 				/>
 			);
 		else if (this.props.hidden)
 			return (
 				<input
-					maxLength={this.props.maxLength}
-					className={
-						this.props.className +
-						(this.props.display === "" ? "" : " error")
-					}
-					onPaste={(event) => {
-						event.preventDefault();
-					}}
-					type={this.props.type}
-					id={this.props.id}
-					value={this.state.text}
-					onChange={this.handleChange}
-					onKeyDown={this.checkInput}
+                    maxLength={this.props.maxLength}
+                    className={
+                        this.props.className +
+                        (this.props.display === "" ? "" : " error")
+                    }
+                    onPaste={(event) => {
+                        event.preventDefault();
+                    }}
+                    type={this.props.type}
+                    id={this.props.id}
+                    value={this.state.text}
+                    onChange={this.handleChange}
+                    onKeyDown={this.checkInput}
+                    placeholder={this.props.placeholder}
 				/>
 			);
 		else
@@ -150,7 +151,7 @@ class Input extends Component {
 							maxLength={this.props.maxLength}
 							className={
 								(this.props.className == null
-									? this.props.id === "Username"
+									? this.props.id === "Email"
 										? "user"
 										: "pass"
 									: this.props.className) +
@@ -181,7 +182,7 @@ class Input extends Component {
 							type="button"
 							id={this.props.id + " icon"}
 							className={
-								this.props.id === "Username"
+								this.props.id === "Email"
 									? "login-close close"
 									: "login-hidePassword hidePassword"
 							}

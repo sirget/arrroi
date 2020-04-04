@@ -6,10 +6,10 @@ class Login extends Component {
 	constructor() {
 		super();
 		this.state = {
-			Username: "",
+			Email: "",
 			Password: "",
 			error: {
-				usernameError: "",
+				emailError: "",
 				passwordError: ""
 			}
 		};
@@ -28,15 +28,15 @@ class Login extends Component {
 		let error = this.state.error;
 		let isError = false;
 		event.preventDefault();
-		error.usernameError =
-			this.state.Username === "" ? "Username is required." : "";
+		error.emailError =
+			this.state.Email === "" ? "Email is required." : "";
 		error.passwordError =
 			this.state.Password === "" ? "Password is required." : "";
 		isError =
-			this.state.usernameError !== "" || this.state.passwordError !== ""
+			error.emailError !== "" || error.passwordError !== ""
 				? true
 				: false;
-		this.setState({error});
+        this.setState({ error });
 		if (isError) {
 			return false;
 		}
@@ -54,14 +54,14 @@ class Login extends Component {
 					onSubmit={this.handleSubmit}
 					autoComplete="off"
 				>
-					<LoginField id="Username">
+					<LoginField id="Email">
 						<Input
-							id="Username"
+							id="Email"
 							pass={this.getData}
 							position="right"
-							disabled={this.state.error.usernameError === ""}
+							disabled={this.state.error.emailError === ""}
 							maxLength="25"
-							display={this.state.error.usernameError}
+							display={this.state.error.emailError}
 							type="text"
 							style={{top: "-2.8vw", left: "37.6vw"}}
 						/>

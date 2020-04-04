@@ -14,6 +14,14 @@
     margin: 0px;
     top: 0px;
 }
+.block {
+    display: block;
+}
+
+.link {
+    color: black;
+    text-decoration: none;
+}
 
 a {
     cursor: pointer;
@@ -90,6 +98,9 @@ button:hover {
     width: 100%;
 }
 
+.none {
+    display: none;
+}
 
 .hidden {
     visibility: hidden;
@@ -150,7 +161,7 @@ input.pass {
 }
 
 input.user {
-    background-image: url(./images/user.png);
+    background-image: url(./images/mail.png);
 }
 
 input.pass {
@@ -239,7 +250,7 @@ form.form-register-center {
     padding: 2vw 0.25vw 2vw 2vw;
     background-color: #ebc27c;
     border-radius: 6px;
-    margin-bottom:6vw;
+    margin-bottom: 6vw;
 }
 
 label.register {
@@ -249,18 +260,15 @@ label.register {
     position: relative;
 }
 
-/* textarea.register {
-    height: 10vw;
-    background-color: red;
-    color:magenta;
-} */
 textarea.register,
 input.register {
-    width: 99%;
+    /* width: 99%; */
     font-size: 1.5vw;
     border: 0.15vw solid white;
+    /* padding-left: 0.5vw; */
+    /* text-indent: 0.75vw; */
+    /* overflow: hidden; */
 }
-
 
 img.icon {
     width: 40%;
@@ -282,6 +290,7 @@ div.info {
     font-size: 1.25vw;
     text-align: left;
 }
+
 .tippy-tooltip.info-theme {
     font-family: Supermarket, Helvetica, Arial, sans-serif;
     color: white;
@@ -297,14 +306,17 @@ div.info {
 .tippy-popper[x-placement="bottom"] .tippy-tooltip.info-theme [x-arrow] {
     border-bottom: 7px solid #4a362b;
 }
+
 div.errorText {
-    color:red;
-    font-size:1.1vw;
+    color: red;
+    font-size: 1.1vw;
     text-indent: 0.7vw;
 }
+
 div.top {
     align-content: flex-start;
 }
+
 /* //////////////////////////////////////////////////HOME////////////////////////////////////////////////////////////// */
 .head_home {
     font-size: 4vw;
@@ -361,29 +373,51 @@ div.top {
 }
 
 /* //////////////////////////////////////////////////About////////////////////////////////////////////////////////////// */
+
 h1.aboutUs {
     font-size: 4vw;
-    /* font-family: Manrope, Helvetica, Arial, sans-serif; */
 }
 
 p.us {
     font-size: 2.5vw;
-    /* font-family: Supermarket,Arial, Helvetica, sans-serif; */
     display: flex;
     justify-content: center;
 }
 
 p.us>div {
-    padding-left: 0px;
-    width: 250px;
-    margin-right: 50px;
+    padding-left: 0vw;
+    margin-right: 2vw;
 }
+
 /* //////////////////////////////////////////////////Navbar///////////////////////////////////////////////////////////// */
-ul.navbar {
+div.navbar {
     position: fixed;
-    z-index: 10;
+    width: 100%;
+    height: 2vw;
     background-color: #D6C4BA;
+    padding: 0.5vw;
+    /* box-shadow: 0.1vw 0.1vw 0.5vw #707070; */
 }
-li.navbar {
-    display: inline-block;
+
+div.dropdown {
+    position: fixed;
+    background-color: #D6C4BA;
+    top: 3vw;
+    width: 12vw;
+    padding: 1vw 0 0.5vw 0;
+    transition: 0.5s translateY(5000px);
+    /* ani */
+    /* box-shadow: 0.1vw 0.1vw 0.5vw #707070; */
+    /* border-top: 5px solid #D6C4BA; */
+}
+
+.dropdown-content {
+    font-size: 1.4vw;
+    width: fit-content;
+    text-indent: 1vw;
+}
+
+.dropdown-content:hover {
+    background-color:#707070;
+    color:white;
 }

@@ -6,7 +6,7 @@ const About = () => (
 			About us
 		</h1>
 		<p className="us textS">
-			<div style={{ flexBasis: "33vw" }}>
+			<div style={{ flexBasis: "15vw" }}>
 				นาย ณชวนนท์
 				<br />
 				นางสาว พิมพิดา
@@ -18,7 +18,7 @@ const About = () => (
 				นางสาว สายธาร
 				<br />
 			</div>
-			<div style={{ flexBasis: "33vw" }}>
+			<div style={{ flexBasis: "13vw" }}>
 				เพชราภรณ์
 				<br />
 				มุสิกมาศ
@@ -30,7 +30,7 @@ const About = () => (
 				กิตติบัลลังกุล
 				<br />
 			</div>
-			<div style={{ flexBasis: "20vw" }}>
+			<div style={{ flexBasis: "10vw" }}>
 				61010280 <br />
 				61010756
 				<br />

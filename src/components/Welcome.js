@@ -9,7 +9,7 @@ class Welcome extends Component {
 					<img
 						src={background}
 						alt="background"
-						className="background"
+                        className="background"
 					/>
 					<div className="vertical-center">
 						<h1 className="title">
