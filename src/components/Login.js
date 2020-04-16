@@ -28,15 +28,14 @@ class Login extends Component {
 		let error = this.state.error;
 		let isError = false;
 		event.preventDefault();
-		error.emailError =
-			this.state.Email === "" ? "Email is required." : "";
+		error.emailError = this.state.Email === "" ? "Email is required." : "";
 		error.passwordError =
 			this.state.Password === "" ? "Password is required." : "";
 		isError =
 			error.emailError !== "" || error.passwordError !== ""
 				? true
 				: false;
-        this.setState({ error });
+		this.setState({error});
 		if (isError) {
 			return false;
 		}
@@ -63,7 +62,8 @@ class Login extends Component {
 							maxLength="25"
 							display={this.state.error.emailError}
 							type="text"
-							style={{top: "-2.8vw", left: "37.6vw"}}
+                            style={{ top: "-2.8vw", left: "37.6vw" }}
+                            default=""
 						/>
 					</LoginField>
 					<LoginField id="Password">
@@ -76,6 +76,7 @@ class Login extends Component {
 							maxLength="30"
 							type="password"
 							style={{top: "-3.3vw", left: "37vw"}}
+                            default=""
 						/>
 					</LoginField>
 				</form>

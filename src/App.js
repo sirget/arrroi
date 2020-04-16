@@ -9,19 +9,21 @@ import Register from "./components/Register";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Test from "./components/Test";
+import MenuPage from "./components/MenuPage";
 
 function App() {
 	return (
-        <Router>
+		<Router>
 			<Navbar />
-			<div style={{marginBottom:"3vw"}} />
+			<div style={{marginBottom: "3vw"}} />
 			<Switch>
 				<Route path="/" exact component={Welcome} />
 				<Route path="/login" component={Login} />
-				<Route path="/register" component={Register}  />
+				<Route path="/register" component={Register} />
 				<Route path="/home" component={Home} />
 				<Route path="/test" component={Test} />
 				<Route path="/about" component={About} />
+				<Route path="/menu" component={MenuPage} />
 			</Switch>
 		</Router>
 	);

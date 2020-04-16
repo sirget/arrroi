@@ -2,17 +2,31 @@ import React, {Component} from "react";
 import {Tooltip as Tippy} from "react-tippy";
 
 class Input extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
-			text: "",
+			text: props.default,
 			open: false,
-			isFocused: false
+			isFocused: false,
 		};
 	}
+	addValue = () => {
+		this.setState((prevState) => ({
+			text:
+				parseInt(prevState.text) < 999
+					? parseInt(prevState.text) + 1
+					: 999,
+		}));
+	};
+	decreaseValue = () => {
+		this.setState((prevState) => ({
+			text:
+				parseInt(prevState.text) > 0 ? parseInt(prevState.text) - 1 : 0,
+		}));
+	};
 	handleChange = (event) => {
 		this.setState({
-			text: event.target.value
+			text: event.target.value,
 		});
 		this.props.pass(event, event.target.value);
 	};
@@ -30,7 +44,7 @@ class Input extends Component {
 		}
 		if (event.target.id === "Email icon") {
 			this.setState({
-				text: ""
+				text: "",
 			});
 			this.props.pass(y, "", false);
 		}
@@ -55,6 +69,7 @@ class Input extends Component {
 					event.preventDefault();
 				break;
 			case "เบอร์โทรศัพท์":
+			case "button":
 				if (
 					!/[\d]+/g.test(event.key) &&
 					event.key !== "ArrowLeft" &&
@@ -85,9 +100,8 @@ class Input extends Component {
 			return (
 				<textarea
 					className={
-						this.props.className +
-						(this.props.display === "" ? "" : " error")
-                    }
+						"register" + (this.props.disabled ? "" : " error")
+					}
 					onPaste={(event) => {
 						event.preventDefault();
 					}}
@@ -97,38 +111,58 @@ class Input extends Component {
 					onChange={this.handleChange}
 					maxLength={this.props.maxLength}
 					onKeyDown={this.checkInput}
-					onMouseEnter={() => {
-						this.setState({open: true});
+					onPaste={(event) => {
+						event.preventDefault();
 					}}
-					onFocus={() => {
-						this.setState({open: true, isFocused: true});
-					}}
-					onBlur={() => {
-						this.setState({open: false, isFocused: false});
-					}}
-					onMouseOut={() => {
-						if (!this.state.isFocused) this.setState({open: false});
-					}}
-                    placeholder={this.props.placeholder}
+					placeholder={this.props.placeholder}
 				/>
 			);
-		else if (this.props.hidden)
+		else if (this.props.id === "button") {
+			return (
+				<>
+					<input
+						className="button textS"
+						type="button"
+						value="-"
+						onClick={this.decreaseValue}
+					/>
+					<input
+						className="numOfProduct textS"
+						id={this.props.id}
+						value={this.state.text}
+						onChange={this.handleChange}
+						onPaste={(event) => {
+							event.preventDefault();
+						}}
+						onKeyDown={this.checkInput}
+                        maxLength={this.props.maxLength}
+                        onClick={(e) => { e.target.select();}}
+					/>
+					<input
+						className="button textS"
+						type="button"
+						value="+"
+						onClick={this.addValue}
+					/>
+					&nbsp; {this.props.unitOfProduct}
+				</>
+			);
+		} else if (this.props.hidden)
 			return (
 				<input
-                    maxLength={this.props.maxLength}
-                    className={
-                        this.props.className +
-                        (this.props.display === "" ? "" : " error")
-                    }
-                    onPaste={(event) => {
-                        event.preventDefault();
-                    }}
-                    type={this.props.type}
-                    id={this.props.id}
-                    value={this.state.text}
-                    onChange={this.handleChange}
-                    onKeyDown={this.checkInput}
-                    placeholder={this.props.placeholder}
+					maxLength={this.props.maxLength}
+					className={
+						"register" + (this.props.disabled ? "" : " error")
+					}
+					onPaste={(event) => {
+						event.preventDefault();
+					}}
+					type={this.props.type}
+					id={this.props.id}
+					value={this.state.text}
+					onChange={this.handleChange}
+					onKeyDown={this.checkInput}
+					placeholder={this.props.placeholder}
 				/>
 			);
 		else

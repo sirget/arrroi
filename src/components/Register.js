@@ -42,7 +42,9 @@ class Register extends Component {
 			this.state.รหัสผ่าน === ""
 				? "กรุณากรอกรหัสผ่าน"
 				: this.state.รหัสผ่าน.length >= 8 &&
-				  this.state.รหัสผ่าน.match(/[A-Z]+[a-z]+[0-9]+/g)
+				  this.state.รหัสผ่าน.match(/[A-Z]+/g) &&
+				  this.state.รหัสผ่าน.match(/[a-z]+/g) &&
+				  this.state.รหัสผ่าน.match(/[0-9]+/g)
 				? ""
 				: "รหัสผ่านไม่ตรงตามรูปแบบที่กำหนด";
 		error.surnameError =
@@ -51,7 +53,8 @@ class Register extends Component {
 		error.emailError =
 			this.state.อีเมล === ""
 				? "กรุณากรอกอีเมล"
-				: this.state.อีเมล.match(/@\./g)
+				: this.state.อีเมล.match(/[@]+/g) &&
+				  this.state.อีเมล.match(/[\.]+/g)
 				? ""
 				: "อีเมลไม่ถูกต้อง";
 		error.addressError =
@@ -80,7 +83,7 @@ class Register extends Component {
 			error.phoneError !== ""
 				? true
 				: false;
-        this.setState({ error });
+		this.setState({error});
 		if (isError) {
 			return false;
 		}
@@ -124,15 +127,15 @@ class Register extends Component {
 							display={this.state.error.nameError}
 						>
 							<Input
-								className="register"
 								type="text"
 								id="ชื่อจริง"
 								pass={this.getData}
 								display={this.state.error.nameError}
 								disabled={this.state.error.nameError === ""}
 								maxLength="25"
-                                hidden={true}
+								hidden={true}
                                 placeholder="สมชาย"
+                                default=""
 							/>
 						</RegisterField>
 						<RegisterField
@@ -140,35 +143,30 @@ class Register extends Component {
 							display={this.state.error.surnameError}
 						>
 							<Input
-								className="register"
 								type="text"
 								id="นามสกุล"
-								position="right"
 								pass={this.getData}
 								display={this.state.error.surnameError}
 								disabled={this.state.error.surnameError === ""}
 								maxLength="25"
-                                hidden={true}
-                                placeholder="รักชาติ"
+								hidden={true}
+								placeholder="รักชาติ"
+                                default=""
 							/>
 						</RegisterField>
 						<RegisterField
 							id="อีเมล"
 							display={this.state.error.emailError}
-							// hasIcon={true}
-							// info={"เช่น example@test.com"}
 						>
 							<Input
-								className="register"
 								type="text"
 								id="อีเมล"
-								position="right"
 								pass={this.getData}
-								display={this.state.error.emailError}
 								disabled={this.state.error.emailError === ""}
 								maxLength="25"
-                                hidden={true}
-                                placeholder="test@example.com"
+								hidden={true}
+								placeholder="test@example.com"
+                                default=""
 							/>
 						</RegisterField>
 						<RegisterField
@@ -176,16 +174,14 @@ class Register extends Component {
 							display={this.state.error.usernameError}
 						>
 							<Input
-								className="register"
 								type="text"
 								id="บัญชีผู้ใช้"
-								position="right"
 								pass={this.getData}
-								display={this.state.error.usernameError}
 								disabled={this.state.error.usernameError === ""}
 								maxLength="25"
 								hidden={true}
-                                placeholder="example_01"
+								placeholder="example_01"
+                                default=""
 							/>
 						</RegisterField>
 						<RegisterField
@@ -197,16 +193,14 @@ class Register extends Component {
 							display={this.state.error.passwordError}
 						>
 							<Input
-								className="register"
 								type="password"
 								id="รหัสผ่าน"
-								position="right"
 								pass={this.getData}
-								display={this.state.error.passwordError}
 								disabled={this.state.error.passwordError === ""}
 								maxLength="25"
-                                hidden={true}                                
-                                placeholder="Ex123456789"
+								hidden={true}
+								placeholder="Ex123456789"
+                                default=""
 							/>
 						</RegisterField>
 
@@ -215,16 +209,14 @@ class Register extends Component {
 							display={this.state.error.confirmError}
 						>
 							<Input
-								className="register"
 								type="password"
 								id="ยืนยันรหัสผ่าน"
-								position="right"
 								pass={this.getData}
-								display={this.state.error.confirmError}
 								disabled={this.state.error.confirmError === ""}
 								maxLength="25"
-								hidden={true}                             
-                                placeholder="Ex123456789"
+								hidden={true}
+								placeholder="Ex123456789"
+                                default=""
 							/>
 						</RegisterField>
 
@@ -233,33 +225,29 @@ class Register extends Component {
 							display={this.state.error.phoneError}
 						>
 							<Input
-								className="register"
 								type="text"
 								id="เบอร์โทรศัพท์"
-								position="right"
 								pass={this.getData}
-								display={this.state.error.phoneError}
 								disabled={this.state.error.phoneError === ""}
 								maxLength="10"
-								hidden={true}                             
-                                placeholder="0899199218"
+								hidden={true}
+								placeholder="0899199218"
+                                default=""
 							/>
 						</RegisterField>
 						<RegisterField
 							id="ที่อยู่"
 							display={this.state.error.addressError}
 						>
-							<Input
-								className="register"
+                            <Input
+                                default=""
 								type="text"
 								id="ที่อยู่"
-								position="right"
 								pass={this.getData}
-								display={this.state.error.addressError}
 								disabled={this.state.error.addressError === ""}
-                                maxLength="92"
-                                hidden={true}                                                             
-                                placeholder="99/99 หมู่ 9 ถนนสายไหม ต.จัดสรร อ.เมือง จ.อาหาร"
+								maxLength="92"
+								hidden={true}
+								placeholder="99/99 หมู่ 9 ถนนสายไหม ต.จัดสรร อ.เมือง จ.อาหาร"
 							/>
 						</RegisterField>
 					</form>
@@ -269,7 +257,7 @@ class Register extends Component {
 						form="register"
 						style={{position: "absolute", top: "105%", left: "95%"}}
 					>
-                        ยืนยัน
+						ยืนยัน
 					</button>
 				</div>
 			</div>

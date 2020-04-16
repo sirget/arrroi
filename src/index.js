@@ -9,10 +9,10 @@ ReactDOM.render(<App />, document.getElementById("root"));
 document.addEventListener("mouseup", (event) => {
     let x = document.getElementById("dropdown");
     let y = document.getElementById("more_menu");
-    console.log(event.target)
+    // console.log(x.className)
 	if (event.target !== x && event.target !== y) {
-		if (x.style.display === "block") {
-			x.style.display = "none";
+		if (x.className === "dropdown-block") {
+			x.className = "dropdown-none";
 		} 
 	}
 });

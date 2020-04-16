@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import book from "../images/book.png";
 import shop from "../images/shop.png";
+import {Link} from "react-router-dom";
 
 class Home extends Component {
 	render() {
@@ -10,20 +11,20 @@ class Home extends Component {
 					คุณกำลังมองหาเครื่องปรุงอยู่ใช่ไหม?
 				</h1>
 				<div className="box" align="center">
-					<div className="box_menu">
+					<Link className="link box_menu" to ="/menu">
 						<img className="img_menu" src={book} alt="book"></img>
 						<p className="text_menu">
 							ค้นหาสินค้า<br></br>
 							จากเมนู
 						</p>
-					</div>
-					<div className="box_shop">
+					</Link>
+					<Link className="link box_menu">
 						<img className="img_shop" src={shop} alt="shop"></img>
 						<p className="text_shop">
 							ค้นหาสินค้า<br></br>
 							จากร้านค้า
 						</p>
-					</div>
+					</Link>
 				</div>
 			</div>
 		);

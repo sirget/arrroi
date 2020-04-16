@@ -9,9 +9,7 @@ class Navbar extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			dropdownState: false
-		};
+		this.state = {};
 	}
 	// componentWillUpdate = () => {
 	// }
@@ -24,17 +22,16 @@ class Navbar extends Component {
 	// 	});
 	// 	// this.props.history.push('/to');
 	// };
-    showDropdown = () => {
+	showDropdown = () => {
         let x = document.getElementById("dropdown");
-        console.log(x.style.display)
-        console.log(x.style.display === "none")
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } else{
-            x.style.display = "block";
-        console.log('dfsa')
-    }
-	}
+		if (x.className === "dropdown-block") {
+			x.className = "dropdown-none";
+		} else {
+			x.className = "dropdown-block";
+		}
+        console.log(x.className);
+        console.log('huh')
+	};
 	render() {
 		return (
 			<div className="row-flex navbar textM">
@@ -43,19 +40,14 @@ class Navbar extends Component {
 						width: "2%",
 						margin: "0 1vw 0 0.25vw",
 						cursor: "pointer"
-                    }}
-                    id = "more_menu"
+					}}
+					id="more_menu"
 					src={menu}
 					alt="menu"
 					className="background"
-					onClick={this.showDropdown}
+                    onClick={this.showDropdown}
 				/>
-				<div
-					id="dropdown"
-					className="dropdown"
-                    style={{display:"none"}}
-					what={this.state.dropdownState ? "block" : "none"}
-				>
+				<div id="dropdown" className="dropdown">
 					{/* <img
                         src={close}
                         className="block"
@@ -128,7 +120,7 @@ class Navbar extends Component {
 					style={{
 						width: "8vw",
 						height: "7vw",
-						margin: "-2.3vw 52vw 0 0"
+						margin: "-2.3vw 51vw 0 0"
 					}}
 					src={logo}
 					alt="logo"

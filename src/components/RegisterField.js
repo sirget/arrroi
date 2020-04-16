@@ -5,10 +5,7 @@ import {Tooltip as Tippy} from "react-tippy";
 class RegisterField extends Component {
 	render() {
 		return (
-			<div
-                className="row-flex"
-                
-			>
+			<div className="row-flex">
 				<div
 					className="register-label-box"
 					style={{marginTop: "-0.25vw"}}
@@ -19,7 +16,7 @@ class RegisterField extends Component {
 					{this.props.children}
 					<div
 						style={{
-							height: "2vw"
+							height: "2vw",
 						}}
 						className={
 							this.props.display === ""
@@ -32,7 +29,7 @@ class RegisterField extends Component {
 				</div>
 				<div
 					style={{
-						width: "10%"
+						width: "10%",
 					}}
 				>
 					{this.props.hasIcon === true ? (
@@ -45,15 +42,17 @@ class RegisterField extends Component {
 								<div className="info">
 									<pre>{this.props.info}</pre>
 								</div>
-                            }
+							}
 						>
 							<div className="row-flex top">
 								<img
 									className="icon"
 									alt="info"
 									src={information}
-                                    style={{
-                                        marginLeft: "1.25vw", marginTop:"0.25vw"}}
+									style={{
+										marginLeft: "1.25vw",
+										marginTop: "0.25vw",
+									}}
 								/>
 							</div>
 						</Tippy>

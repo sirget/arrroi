@@ -4,12 +4,13 @@ import {withRouter} from "react-router-dom";
 class Welcome extends Component {
 	render() {
 		return (
-            <div className="column-flex">
+			<div className="column-flex">
 				<div className="container">
 					<img
 						src={background}
 						alt="background"
-                        className="background"
+						className="background"
+						style={{position: "relative", zIndex: "-2"}}
 					/>
 					<div className="vertical-center">
 						<h1 className="title">
