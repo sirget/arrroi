@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Test2 from "./Test2";
-import BuyProduct from "./StoreDetails";
+import BuyProduct from "./Ingredients";
 import MenuDetails from './MenuDetails';
 
 class Test extends Component {

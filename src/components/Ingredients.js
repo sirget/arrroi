@@ -2,7 +2,15 @@ import React, {Component} from "react";
 import BuyProduct from "./BuyProduct";
 import เนื้อสันในวัว from "../images/เนื้อสันในวัว.jpg";
 
-class StoreDetails extends Component {
+class Ingredients extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			//  type={} //คืออันนี้ มันจะใช้หลายหน้าอะ เรากำหนด type ให้แล้ว เป็น menu คือมาเป็นหน้าซื้อส่วนผสมจากเมนู, store คือมาจากหน้าร้านค้า, cart คือ
+		};
+	}
+
 	render() {
 		return (
 			<>
@@ -12,6 +20,7 @@ class StoreDetails extends Component {
 					price="99"
 					unitOfProduct="ถุง"
 					imgFood={เนื้อสันในวัว}
+					type="x"
 				/>
 				<BuyProduct
 					nameOfProduct="เนื้อสันในวัว 150 กรัม"
@@ -19,9 +28,10 @@ class StoreDetails extends Component {
 					price="99"
 					unitOfProduct="ถุง"
 					imgFood={เนื้อสันในวัว}
+					type="x"
 				/>
 			</>
 		);
 	}
 }
-export default StoreDetails;
+export default Ingredients;

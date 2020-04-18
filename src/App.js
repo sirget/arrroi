@@ -10,6 +10,8 @@ import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Test from "./components/Test";
 import MenuPage from "./components/MenuPage";
+import MenuDetails from "./components/MenuDetails";
+import Ingredients from "./components/Ingredients";
 
 function App() {
 	return (
@@ -23,7 +25,9 @@ function App() {
 				<Route path="/home" component={Home} />
 				<Route path="/test" component={Test} />
 				<Route path="/about" component={About} />
-				<Route path="/menu" component={MenuPage} />
+                <Route path="/menu" exact component={MenuPage} />
+                <Route path ="/menu/:name/steps" component={MenuDetails} />
+                <Route path="/menu/:name/ingredients" component ={Ingredients} />
 			</Switch>
 		</Router>
 	);

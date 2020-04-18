@@ -11,18 +11,22 @@ class MenuList extends Component {
 					src={this.props.src}
 					alt={this.props.alt}
 				/>
-                <div className="column-flex">
-                    <div className = "menu-title">                        
-					{this.props.alt}
-                    </div>
+				<div className="column-flex">
+					<div className="menu-title">{this.props.alt}</div>
 					<div className="row-flex">
-						<Link className="link menu-link">
+						<Link
+							className="link menu-link"
+							to={"/menu" + this.props.menu + "/ingredients"} //ชื่อเมนูอยู่ตรงกลาง เช่น /menu/กุ้งคั่วกระเทียมพริก/ingredients
+						>
 							<img className="menu-icon" src={pan} alt="pan" />
 							ซื้อส่วนผสม
 						</Link>
 					</div>
 					<div className="row-flex">
-						<Link className="link menu-link">
+						<Link
+							className="link menu-link"
+							to={"/menu" + this.props.menu + "/steps"} //ชื่อเมนูอยู่ตรงกลาง เช่น /menu/กุ้งคั่วกระเทียมพริก/steps
+						>
 							<img className="menu-icon" src={mix} alt="mix" />
 							วิธีทำ
 						</Link>
